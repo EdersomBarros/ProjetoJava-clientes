@@ -15,6 +15,6 @@ public class ServicoPrestadoDTO {
     private String preco;
     @NotEmpty(message = "{campo.data.obrigatorio}")
     private String data;
-   @NotNull(message = "{campo.cleinte.obrigatorio}")
+    @NotNull(message = "{campo.cleinte.obrigatorio}")
     private Long idCliente;
 }
