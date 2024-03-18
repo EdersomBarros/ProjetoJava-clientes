@@ -26,11 +26,12 @@ public class ApplicationControllerAdvice {
                 .collect(Collectors.toList());
         return new ApiErrors(message);
     }
+
     @ExceptionHandler(ResponseStatusException.class)
-    public ResponseEntity handleResponseStatusException(ResponseStatusException ex){
-        String mensagemErro = ex.getMessage();
+    public ResponseEntity handleResponseStatusException(ResponseStatusException ex) {
+        String mensagemErro = ex.getReason();
         HttpStatus codigoStatus = ex.getStatus();
         ApiErrors apiErrors = new ApiErrors(mensagemErro);
-        return new ResponseEntity(apiErrors,codigoStatus);
+        return new ResponseEntity(apiErrors, codigoStatus);
     }
 }

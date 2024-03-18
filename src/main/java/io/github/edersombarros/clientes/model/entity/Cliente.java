@@ -11,6 +11,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -21,8 +23,8 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 150 )
-    @NotEmpty( message = "{campo.nome.obrigatorio}")
+    @Column(nullable = false, length = 150)
+    @NotEmpty(message = "{campo.nome.obrigatorio}")
     private String nome;
 
     @Column(nullable = false, length = 11)
@@ -35,7 +37,8 @@ public class Cliente {
     private LocalDate dataCadastro;
 
     @PrePersist
-    public void prePersist(){
+    public void prePersist() {
+
         setDataCadastro(LocalDate.now());
 
     }

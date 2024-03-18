@@ -11,15 +11,16 @@ import java.util.Locale;
 @Configuration
 public class InternacionalizacaoConfig {
     @Bean
-    public MessageSource messageSource(){
+    public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasename("classpath:message");
         messageSource.setDefaultEncoding("ISO-8859-1");
         messageSource.setDefaultLocale(Locale.getDefault());
-        return  messageSource;
+        return messageSource;
     }
+
     @Bean
-    public LocalValidatorFactoryBean validatorFactoryBean(){
+    public LocalValidatorFactoryBean validatorFactoryBean() {
         LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
         bean.setValidationMessageSource(messageSource());
         return bean;
